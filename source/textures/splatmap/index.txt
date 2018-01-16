@@ -1,4 +1,0 @@
-http://texturelib.com/texture/?path=/Textures/ground/stone%20ground/ground_stone_ground_0029
-http://texturelib.com/texture/?path=/Textures/metal/bare/metal_bare_0029
-http://texturelib.com/texture/?path=/Textures/grass/grass/grass_grass_0124
-http://texturelib.com/texture/?path=/Textures/water/water/water_water_0024
