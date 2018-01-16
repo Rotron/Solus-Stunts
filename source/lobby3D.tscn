@@ -1,0 +1,577 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://lobby.gd" type="Script" id=1]
+[ext_resource path="res://font/font_mp.tres" type="DynamicFont" id=2]
+[ext_resource path="res://font/carlito/google-crosextrafonts-carlito-20130920/Carlito-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://font/font_list.tres" type="DynamicFont" id=4]
+[ext_resource path="res://images/ui/rect(400x120).png" type="Texture" id=5]
+[ext_resource path="res://font/font.res" type="DynamicFont" id=6]
+[ext_resource path="res://images/ui/wheel.png" type="Texture" id=7]
+[ext_resource path="res://music/ArcLight.ogg" type="AudioStream" id=8]
+
+[sub_resource type="StreamTexture" id=1]
+
+flags = 4
+load_path = "res://.import/bike.jpg-3407bdc4befa7618f4e4ff16a956600b.stex"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Theme" id=3]
+
+
+[node name="lobby3D" type="Spatial" index="0"]
+
+_sections_unfolded = [ "Pause", "Transform", "Visibility" ]
+
+[node name="lobby" type="Control" parent="." index="0"]
+
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="backbtn" type="Button" parent="lobby" index="0"]
+
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="background" type="Sprite" parent="lobby/backbtn" index="0"]
+
+texture = SubResource( 1 )
+centered = false
+_sections_unfolded = [ "Animation", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="connect" type="Panel" parent="lobby" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1300.0
+margin_top = 100.0
+margin_right = 1854.0
+margin_bottom = 434.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="name_label" type="Label" parent="lobby/connect" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 31.0
+margin_top = 38.0
+margin_right = 231.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Name:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="name" type="LineEdit" parent="lobby/connect" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 82.0
+margin_right = 248.0
+margin_bottom = 132.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Linux User"
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="ip_label" type="Label" parent="lobby/connect" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 185.0
+margin_right = 232.0
+margin_bottom = 235.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "IP:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ip" type="LineEdit" parent="lobby/connect" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 241.0
+margin_right = 248.0
+margin_bottom = 291.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+text = "127.0.0.1"
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+
+[node name="host" type="Button" parent="lobby/connect" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 326.0
+margin_top = 83.0
+margin_right = 526.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Host"
+flat = false
+align = 1
+
+[node name="join" type="Button" parent="lobby/connect" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 326.0
+margin_top = 242.0
+margin_right = 526.0
+margin_bottom = 292.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Join"
+flat = false
+align = 1
+
+[node name="error_label" type="Label" parent="lobby/connect" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 142.0
+margin_top = 249.0
+margin_right = 403.0
+margin_bottom = 309.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0.820312, 0.291595, 0.291595, 1 )
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="players" type="Panel" parent="lobby" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1400.0
+margin_top = 101.0
+margin_right = 1766.0
+margin_bottom = 617.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="label" type="Label" parent="lobby/players" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 26.0
+margin_top = 18.0
+margin_right = 212.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Awaiting Players..."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="start" type="Button" parent="lobby/players" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 128.0
+margin_top = 463.0
+margin_right = 253.0
+margin_bottom = 494.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+align = 1
+_sections_unfolded = [ "Material", "Visibility", "custom_fonts" ]
+
+[node name="list" type="ItemList" parent="lobby/players" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 46.0
+margin_top = 59.0
+margin_right = 206.0
+margin_bottom = 274.0
+rect_scale = Vector2( 1.8, 1.8 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 3 )
+items = [  ]
+select_mode = 0
+auto_height = true
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_colors" ]
+
+[node name="UI" type="Control" parent="lobby" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="lobby/UI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_top = 134.0
+margin_right = 562.0
+margin_bottom = 520.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="single" type="Button" parent="lobby/UI/VBoxContainer" index="0"]
+
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 412.0
+margin_bottom = 126.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 5 )
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Label" type="Label" parent="lobby/UI/VBoxContainer/single" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 25.0
+margin_right = 403.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.355469, 0, 0, 1 )
+text = "Single Player"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "custom_colors" ]
+
+[node name="multi" type="Button" parent="lobby/UI/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 130.0
+margin_right = 412.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 5 )
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="lobby/UI/VBoxContainer/multi" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 25.0
+margin_right = 384.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.355451, 0, 0, 1 )
+text = "Multiplayer"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="settings" type="Button" parent="lobby/UI/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 260.0
+margin_right = 412.0
+margin_bottom = 386.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 5 )
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="lobby/UI/VBoxContainer/settings" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 75.0
+margin_top = 25.0
+margin_right = 324.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.355451, 0, 0, 1 )
+text = "Settings"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="wheel" type="Sprite" parent="lobby/UI" index="1"]
+
+visible = false
+position = Vector2( 1815.88, 988.075 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="error" type="AcceptDialog" parent="lobby" index="4"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 83.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Margin" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="lobby" index="5"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="pressed" from="lobby/backbtn" to="lobby" method="_on_backbtn_pressed"]
+
+[connection signal="pressed" from="lobby/connect/host" to="lobby" method="_on_host_pressed"]
+
+[connection signal="pressed" from="lobby/connect/join" to="lobby" method="_on_join_pressed"]
+
+[connection signal="button_down" from="lobby/players/start" to="lobby" method="_on_start_button_down"]
+
+[connection signal="pressed" from="lobby/players/start" to="lobby" method="_on_start_pressed"]
+
+[connection signal="pressed" from="lobby/UI/VBoxContainer/single" to="lobby" method="_on_single_pressed"]
+
+[connection signal="pressed" from="lobby/UI/VBoxContainer/multi" to="lobby" method="_on_multi_pressed"]
+
+[connection signal="pressed" from="lobby/UI/VBoxContainer/settings" to="lobby" method="_on_settings_pressed"]
+
+
