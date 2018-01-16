@@ -1,4 +1,4 @@
-# Music
+## Music
 By Matthew Pablo:
 Tactical Pursuit: https://opengameart.org/content/tactical-pursuit (license: CC-BY 3.0)
 Vilified: https://opengameart.org/content/vilified (license: CC-BY 3.0)
@@ -12,13 +12,13 @@ Skiessi-C64: https://lmms.io/lsp/?action=show&file=472 (license: CC-BY 3.0)
 
 Folder: music
 
-#3D assets
+## 3D assets
 By SONGKRO:
 Car 739: https://www.blendswap.com/blends/view/56683 (license: CC0)
 
 Folder: objects/car
 
-#Textures
+## Textures
 By Dmitriy Chugai:
 Seamless stone ground texture: http://texturelib.com/texture/?path=/Textures/ground/stone%20ground/ground_stone_ground_0029 (license: http://texturelib.com/license/)
 Grass texture: http://texturelib.com/texture/?path=/Textures/grass/grass/grass_grass_0124 (license: http://texturelib.com/license/)
@@ -31,7 +31,7 @@ Channelled Land: https://www.blendswap.com/blends/view/70029 (license: CC0)
 
 Folder: objects/terrain
 
-#Car Setup
+## Car Setup
 By (c) Zireael (Zireael07):
 Files: https://github.com/Zireael07/FreeRoamRoguelikeRacerPrototype/tree/master/game/car (license: MIT)
 - follow_camera.gd
@@ -44,22 +44,21 @@ Files: https://github.com/Zireael07/FreeRoamRoguelikeRacerPrototype/tree/master/
 
 Folder: car; hud
 
-#Background Image
+## Background Image
 By Shrikesh Kumar (shrikeshmaster):
 Bike, Riding, Clouds, Bicycle: https://pixabay.com/en/bike-riding-clouds-bicycle-ride-2511594/ (license: CC0)
 
 
-#Icon
+## Icon
 By barretward:
 Vintage Wood Mini Van Icon: https://openclipart.org/detail/182113/vintage-wood-mini-van-icon (license: CC0)
 
-#UI
+## UI
 By Stormcloud:
 Wheel: https://openclipart.org/detail/17705/wheel (license: https://openclipart.org/share)
 
 
-#License
-License:
+## License
 CC-BY 3.0: https://creativecommons.org/licenses/by/3.0/legalcode
 CC0: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
