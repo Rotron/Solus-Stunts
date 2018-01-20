@@ -3,6 +3,9 @@ var rot = 0.0;
 var loadimg = preload("res://images/screen.jpg")
 func _ready():
 	# Called every time the node is added to the scene.
+	var settings = get_tree().get_root().get_node("lobby3D/SettingsGUI")
+	settings.visible = !settings.visible
+	
 	gamestate.connect("connection_failed", self, "_on_connection_failed")
 	gamestate.connect("connection_succeeded", self, "_on_connection_success")
 	gamestate.connect("player_list_changed", self, "refresh_lobby")
@@ -11,8 +14,14 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if(Input.is_key_pressed(KEY_ESCAPE)):
-		get_tree().free()
+	# Toggle the menu when pressing Escape
+	if event.is_action_pressed("toggle_menu"):
+		var settings = get_tree().get_root().get_node("lobby3D/SettingsGUI")
+		settings.visible = !settings.visible
+
+	# Toggle fullscreen when pressing F11 or Alt+Enter
+	if event.is_action_pressed("toggle_fullscreen"):
+		OS.set_window_fullscreen(!OS.is_window_fullscreen())
 
 func _on_host_pressed():
 	if (get_node("connect/name").text == ""):
@@ -81,8 +90,8 @@ func now():
 func _on_start_pressed():
 	get_tree().get_root().get_node("lobby3D/lobby").hide()
 	var music = load("res://music/Winning the Race.ogg")
-	get_node("AudioStreamPlayer").stream = music
-	get_node("AudioStreamPlayer").play()
+	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").stream = music
+	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").play()
 	now()
 	
 	
@@ -90,30 +99,36 @@ func _on_start_pressed():
 
 
 func _on_single_pressed():
-	pass
+	_on_host_pressed()
+	_on_start_pressed()
 
 
 func _on_multi_pressed():
 	get_node("connect").show()
-	get_node("backbtn/background").modulate = Color(0.5,0.5,0.5)
+	get_node("background/backbtn/background").modulate = Color(0.5,0.5,0.5)
 	get_node("UI").modulate = Color(0.5,0.5,0.5)
 	
 
 
 func _on_settings_pressed():
-	pass # replace with function body
+	get_tree().get_root().get_node("lobby3D/SettingsGUI").visible = true
 
 
 func _on_start_button_down():
-	get_node("backbtn/background").texture = loadimg
-	get_node("UI").hide()
-	get_node("backbtn/background").z_index = 1
+	get_node("background/backbtn/background").texture = loadimg
+	get_node("background/backbtn/background").z_index = 3
 
 
 func _on_backbtn_pressed():
 	get_node("connect").hide()
 	get_node("players").hide()
+	get_tree().get_root().get_node("lobby3D/SettingsGUI").visible = false
 	get_node("UI").show()
-	get_node("backbtn/background").modulate = Color(1.0,1.0,1.0)
+	get_node("background/backbtn/background").modulate = Color(1.0,1.0,1.0)
 	get_node("UI").modulate = Color(1.0,1.0,1.0)
 	
+
+
+
+func _on_single_button_down():
+	_on_start_button_down()

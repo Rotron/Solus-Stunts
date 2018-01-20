@@ -79,6 +79,17 @@ Files: https://github.com/Zireael07/FreeRoamRoguelikeRacerPrototype/tree/master/
 
 Folder: car; hud
 
+## Settings
+By (c) Hugo Locurcio (Calinou) and contributors:
+
+Files: https://github.com/Calinou/godot-sponza/blob/master/scenes/settings_gui.tscn (license: MIT)
+
+- lobby3D.tscn
+
+Files: https://github.com/Calinou/godot-sponza/blob/master/scripts/settings_gui.gd (license: MIT)
+
+- settings_gui.gd
+
 
 ## Background Image
 By Shrikesh Kumar (shrikeshmaster):
