@@ -14,15 +14,15 @@
 [ext_resource path="res://settings_gui.gd" type="Script" id=12]
 [ext_resource path="res://music/ArcLight.ogg" type="AudioStream" id=13]
 
-[sub_resource type="PanoramaSky" id=5]
+[sub_resource type="PanoramaSky" id=1]
 
 radiance_size = 4
 panorama = ExtResource( 1 )
 
-[sub_resource type="Environment" id=6]
+[sub_resource type="Environment" id=2]
 
 background_mode = 2
-background_sky = SubResource( 5 )
+background_sky = SubResource( 1 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 0.5
@@ -157,7 +157,7 @@ anti_aliasing = false
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Shadow" ]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=5]
 
 size = 30
 use_mipmaps = false
@@ -165,10 +165,10 @@ use_filter = false
 font_data = ExtResource( 10 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Theme" id=11]
+[sub_resource type="Theme" id=6]
 
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=7]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -197,7 +197,7 @@ anti_aliasing = false
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Shadow" ]
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
 
 content_margin_left = 16.0
 content_margin_right = 16.0
@@ -226,13 +226,6 @@ anti_aliasing = false
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Expand Margin" ]
 
-[sub_resource type="StyleBoxEmpty" id=8]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-
 [sub_resource type="StyleBoxEmpty" id=9]
 
 content_margin_left = -1.0
@@ -240,9 +233,16 @@ content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[node name="lobby3D" type="WorldEnvironment" index="0"]
+[sub_resource type="StyleBoxEmpty" id=10]
 
-environment = SubResource( 6 )
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[node name="lobby3D" type="WorldEnvironment"]
+
+environment = SubResource( 2 )
 _sections_unfolded = [ "Pause", "Transform", "Visibility" ]
 
 [node name="lobby" type="Control" parent="." index="0"]
@@ -804,7 +804,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 5 )
 text = "Awaiting Players..."
 percent_visible = 1.0
 lines_skipped = 0
@@ -855,7 +855,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-theme = SubResource( 11 )
+theme = SubResource( 6 )
 items = [  ]
 select_mode = 0
 auto_height = true
@@ -895,7 +895,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 2 )
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 7 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
 [node name="WelcomeTitle" type="Label" parent="SettingsGUI/Panel" index="0"]
@@ -1038,8 +1038,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/normal_font = ExtResource( 9 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
@@ -1072,8 +1072,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/normal_font = ExtResource( 9 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
@@ -1358,8 +1358,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 custom_fonts/normal_font = ExtResource( 9 )
 bbcode_enabled = true
 bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][ESCAPE][/color] to toggle this menu.[/color]"
