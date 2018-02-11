@@ -2,31 +2,32 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.stex"
+path.s3tc="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex"
+path.etc2="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex"
 
 [deps]
 
 source_file="res://tracks/1/texture/PalmLeaves.001.png"
 source_md5="06561adbe94d7a960793588321b90820"
 
-dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.stex" ]
-dest_md5="30be043cc5a4e32a7d80f1d2b9223fb5"
+dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex", "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex" ]
+dest_md5="bc87a2aa5a9db81efeafd94843161994"
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

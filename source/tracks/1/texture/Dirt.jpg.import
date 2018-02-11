@@ -2,31 +2,32 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dirt.jpg-764fc77cbbc760cd2a952b5ad6bf6657.stex"
+path.s3tc="res://.import/Dirt.jpg-764fc77cbbc760cd2a952b5ad6bf6657.s3tc.stex"
+path.etc2="res://.import/Dirt.jpg-764fc77cbbc760cd2a952b5ad6bf6657.etc2.stex"
 
 [deps]
 
 source_file="res://tracks/1/texture/Dirt.jpg"
 source_md5="3437c800ad744d4a07294051e6bc0c23"
 
-dest_files=[ "res://.import/Dirt.jpg-764fc77cbbc760cd2a952b5ad6bf6657.stex" ]
-dest_md5="7b017b825930da735990d5c8f0282504"
+dest_files=[ "res://.import/Dirt.jpg-764fc77cbbc760cd2a952b5ad6bf6657.s3tc.stex", "res://.import/Dirt.jpg-764fc77cbbc760cd2a952b5ad6bf6657.etc2.stex" ]
+dest_md5="fc599a0d6034b1142d6c8191e0b4ca99"
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

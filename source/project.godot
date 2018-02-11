@@ -11,13 +11,12 @@ config_version=3
 [application]
 
 config/name="Solus Stunts MP"
-run/main_scene="res://lobby3D.tscn"
+run/main_scene="res://lobby.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 gamestate="*res://gamestate.gd"
-text="*res://text/text.gd"
 
 [display]
 

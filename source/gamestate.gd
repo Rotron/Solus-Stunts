@@ -1,11 +1,10 @@
 extends Node
 var rot = 0.0
 const DEFAULT_PORT = 10567
-var world = preload("res://world3D.tscn").instance()
-var car_scene = preload("res://car/car_AI_racer.tscn")
 const MAX_PEERS = 12
-var player_name = "The Warrior"
-
+var player_name = ""
+var track = 0
+var index = 0
 var players = {}
 
 signal player_list_changed()
@@ -52,37 +51,47 @@ remote func unregister_player(id):
 	players.erase(id)
 	emit_signal("player_list_changed")
 
-
-	
-	
-	
-
-remote func pre_start_game(spawn_points, track):
+remote func pre_start_game(tr):
+	var world = load("res://world.tscn").instance()
+	var music = load("res://music/Winning the Race.ogg")
+	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").stream = music
+	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").play()
+	get_tree().get_root().get_node("lobby3D/lobby").hide()
 	get_tree().get_root().add_child(world)
-	var world2 = world.get_node("world2")
 	var newtrack
-	if track == 1:
+	if tr == 1:
 		newtrack = load("res://tracks/1/track1.scn").instance()
-	if track == 2:
+	if tr == 2:
 		newtrack = load("res://tracks/2/track2.scn").instance()
-	if track == 3:
+	if tr == 3:
 		newtrack = load("res://tracks/3/track3.scn").instance()
-	world2.add_child(newtrack)
-	for p_id in spawn_points:
-		var car = car_scene.instance()
+	world.get_node("track").add_child(newtrack)
+	
+	var car_scene = load("res://car/car.scn")
 		
-		car.set_name(str(p_id)) 
-		car.set_network_master(p_id)
-		if (p_id == get_tree().get_network_unique_id()):
-			car.get_node("BODY/Viewport/Nametag").set_player_name(player_name)
-		else:
-			car.get_node("BODY/Viewport/Nametag").set_player_name(players[p_id])
-		world2.add_child(car)
-		
+	var car = car_scene.instance()
+	car.set_name(str(get_tree().get_network_unique_id()))
+	car.set_network_master(get_tree().get_network_unique_id())
+	car.set_player_name(player_name)
+	world.get_node("vehicles").add_child(car)
 	for pn in players:
-		world.get_node("world/score").add_player(pn, players[pn])
+		car = car_scene.instance()
+		car.set_name(str(pn))
+		car.set_network_master(pn)
+		car.set_player_name(players[pn])
+		world.get_node("vehicles").add_child(car)
+		
+		
+		
+		
+
+# Set up score
+	world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
+	for pn in players:
+		world.get_node("score").add_player(pn, players[pn])
 
 	if (not get_tree().is_network_server()):
+		# Tell server we are ready to start
 		rpc_id(1, "ready_to_start", get_tree().get_network_unique_id())
 	elif players.size() == 0:
 		post_start_game()
@@ -121,23 +130,15 @@ func get_player_list():
 func get_player_name():
 	return player_name
 
-func begin_game(track):
+func begin_game():
 	assert(get_tree().is_network_server())
-	var spawn_points = {}
-	spawn_points[1] = 0 
-	var spawn_point_idx = 1
 	for p in players:
-		spawn_points[p] = spawn_point_idx
-		spawn_point_idx += 1
-	for p in players:
-		rpc_id(p, "pre_start_game", spawn_points)
-
-	pre_start_game(spawn_points, track)
+		rpc_id(p, "pre_start_game", track)
+	pre_start_game(track)
 
 func end_game():
 	if (has_node("/root/world3D/world2")):
 		get_node("/root/world3D/world2").queue_free()
-
 	emit_signal("game_ended")
 	players.clear()
 	get_tree().set_network_peer(null)
