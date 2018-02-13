@@ -74,24 +74,15 @@ remote func pre_start_game(tr):
 	car.set_network_master(get_tree().get_network_unique_id())
 	car.set_player_name(player_name)
 	world.get_node("vehicles").add_child(car)
+	world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
 	for pn in players:
 		car = car_scene.instance()
 		car.set_name(str(pn))
 		car.set_network_master(pn)
 		car.set_player_name(players[pn])
 		world.get_node("vehicles").add_child(car)
-		
-		
-		
-		
-
-# Set up score
-	world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
-	for pn in players:
 		world.get_node("score").add_player(pn, players[pn])
-
 	if (not get_tree().is_network_server()):
-		# Tell server we are ready to start
 		rpc_id(1, "ready_to_start", get_tree().get_network_unique_id())
 	elif players.size() == 0:
 		post_start_game()
