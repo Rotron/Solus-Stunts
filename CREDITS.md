@@ -36,6 +36,7 @@ By SONGKRO:
 
 Car 739: https://www.blendswap.com/blends/view/56683 (license: CC0)
 
+Car 4: https://www.blendswap.com/blends/view/48254 (license: CC0)
 
 Folder: objects/car
 
@@ -144,6 +145,20 @@ Wheel: https://openclipart.org/detail/17705/wheel (license: https://openclipart.
 
 Folder: images/ui
 
+## 2D assets
+By Kenney:
+
+Onscreen controls (8 styles): https://opengameart.org/content/onscreen-controls-8-styles (license: CC0)
+
+
+By mondspeer:
+
+Glossy Number : One: https://openclipart.org/detail/203532/glossy-number-one (license: CC0)
+
+Glossy Number : Two: https://openclipart.org/detail/203533/glossy-number-two (license: CC0)
+
+Glossy Number : Three: https://openclipart.org/detail/203534/glossy-number-three (license: CC0)
+
 
 ## Demo:
 
@@ -151,6 +166,9 @@ Godot Engine demo projects:
 
 Multiplayer Bomber:
 https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber (license: MIT)
+
+Rich Text Label (BBCode):
+https://github.com/godotengine/godot-demo-projects/tree/master/gui/rich_text_bbcode (license: MIT)
 
 
 ## Tutorial
@@ -161,6 +179,29 @@ Splatmap shader: https://www.patreon.com/posts/8340768
 Ported to GLES3 fragment shader (Godot 3)
 
 Folder: shader
+
+
+By Bastiaan Olij:
+
+Vehicle Demo 1: https://www.youtube.com/watch?v=B5vE-nNszxA
+
+Adjust settings for vehicle setup
+
+
+## Software:
+Godot Engine: https://godotengine.org/
+
+Blender: https://www.blender.org/
+
+Gimp: https://www.gimp.org/
+
+MakeHuman: http://www.makehuman.org/
+
+
+## Plugins
+glTF-Blender-Exporter: https://github.com/KhronosGroup/glTF-Blender-Exporter
+
+InsaneBump: http://registry.gimp.org/node/28638
 
 
 ## License

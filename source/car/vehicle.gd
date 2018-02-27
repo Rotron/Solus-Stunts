@@ -25,12 +25,11 @@ var speed_kph = 0
 
 var forward_vec
 var reverse
+var time = 0
 
 func _physics_process(delta):
+	time += delta
 	speed = get_linear_velocity().length()
-	get_node("label/fps").set_text(str(Engine.get_frames_per_second()))
-	get_node("label/v").set_text(str(round(speed*3.6)))
-	
 	if (speed > 35):
 		STEER_LIMIT = 0.2
 		STEER_SPEED = 0.5
@@ -48,6 +47,16 @@ func _physics_process(delta):
 		STEER_SPEED = 1
 	
 	if (is_network_master()):
+		get_node("info/fps").set_text(str(Engine.get_frames_per_second()) + " fps")
+		get_node("info/v").set_text(str(round(speed*3.6)))
+		var minutes = int(time/60)
+		var seconds = int(time) - minutes * 60
+		if minutes == 0:
+			get_node("info/time").set_text(str(seconds) + "s")
+		else:
+			get_node("info/time").set_text(str(minutes) + "m " + str(seconds) + "s")
+		
+		
 		get_node("cambase/Camera").make_current()
 		
 		if Input.is_action_pressed("ui_left"):
@@ -112,4 +121,4 @@ func _physics_process(delta):
 		reverse = true
 		
 func _ready():
-	_physics_process(true)
+	set_physics_process(false)

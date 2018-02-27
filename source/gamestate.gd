@@ -67,12 +67,13 @@ remote func pre_start_game(tr):
 		newtrack = load("res://tracks/3/track3.scn").instance()
 	world.get_node("track").add_child(newtrack)
 	
-	var car_scene = load("res://car/car.scn")
+	var car_scene = load("res://car/car.tscn")
 		
 	var car = car_scene.instance()
 	car.set_name(str(get_tree().get_network_unique_id()))
 	car.set_network_master(get_tree().get_network_unique_id())
 	car.set_player_name(player_name)
+	world.car = car
 	world.get_node("vehicles").add_child(car)
 	world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
 	for pn in players:

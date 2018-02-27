@@ -1,0 +1,128 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0, 
+            "componentType" : 5123, 
+            "count" : 4629, 
+            "max" : [
+                882
+            ], 
+            "min" : [
+                0
+            ], 
+            "type" : "SCALAR"
+        }, 
+        {
+            "bufferView" : 1, 
+            "componentType" : 5126, 
+            "count" : 883, 
+            "max" : [
+                118.88015747070312, 
+                56.249656677246094, 
+                210.81761169433594
+            ], 
+            "min" : [
+                -64.62701416015625, 
+                -39.393882751464844, 
+                -196.24774169921875
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 2, 
+            "componentType" : 5126, 
+            "count" : 883, 
+            "max" : [
+                0.5905636548995972, 
+                1.0, 
+                0.9985656142234802
+            ], 
+            "min" : [
+                -0.269966721534729, 
+                -0.9978942275047302, 
+                -0.9888912439346313
+            ], 
+            "type" : "VEC3"
+        }, 
+        {
+            "bufferView" : 3, 
+            "componentType" : 5126, 
+            "count" : 883, 
+            "max" : [
+                0.673328697681427, 
+                0.9999179551159614
+            ], 
+            "min" : [
+                8.204488403862342e-05, 
+                8.20159912109375e-05
+            ], 
+            "type" : "VEC2"
+        }
+    ], 
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter", 
+        "version" : "2.0"
+    }, 
+    "bufferViews" : [
+        {
+            "buffer" : 0, 
+            "byteLength" : 9258, 
+            "byteOffset" : 0, 
+            "target" : 34963
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 10596, 
+            "byteOffset" : 9260, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 10596, 
+            "byteOffset" : 19856, 
+            "target" : 34962
+        }, 
+        {
+            "buffer" : 0, 
+            "byteLength" : 7064, 
+            "byteOffset" : 30452, 
+            "target" : 34962
+        }
+    ], 
+    "buffers" : [
+        {
+            "byteLength" : 37516, 
+            "uri" : "track3.bin"
+        }
+    ], 
+    "meshes" : [
+        {
+            "name" : "Plane.003", 
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2, 
+                        "POSITION" : 1, 
+                        "TEXCOORD_0" : 3
+                    }, 
+                    "indices" : 0
+                }
+            ]
+        }
+    ], 
+    "nodes" : [
+        {
+            "mesh" : 0, 
+            "name" : "Plane.000"
+        }
+    ], 
+    "scene" : 0, 
+    "scenes" : [
+        {
+            "name" : "Scene", 
+            "nodes" : [
+                0
+            ]
+        }
+    ]
+}

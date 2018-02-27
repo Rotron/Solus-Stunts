@@ -4,9 +4,12 @@ var loadimg = preload("res://images/screen.jpg")
 var track1 = preload("res://tracks/track1.jpg")
 var track2 = preload("res://tracks/track2.jpg")
 var track3 = preload("res://tracks/track3.jpg")
+onready var r = get_tree().get_root()
 func _ready():
 	init_connection()
 	set_process_input(true)
+	r.get_node("lobby3D/Panel/character/character").play("idle")
+	r.get_node("lobby3D/Panel").start()
 
 func init_connection():
 	gamestate.connect("connection_failed", self, "_on_connection_failed")
@@ -17,7 +20,7 @@ func init_connection():
 
 func _input(event):
 	if event.is_action_pressed("toggle_menu"):
-		var settings = get_tree().get_root().get_node("lobby3D/SettingsGUI")
+		var settings = r.get_node("lobby3D/SettingsGUI")
 		settings.visible = !settings.visible
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())
@@ -88,7 +91,7 @@ func multiplayer_dialog():
 	get_node("UI").modulate = Color(0.5,0.5,0.5)
 
 func _on_settings_pressed():
-	get_tree().get_root().get_node("lobby3D/SettingsGUI").visible = true
+	r.get_node("lobby3D/SettingsGUI").visible = true
 
 func _on_start_button_down():
 	get_node("background/backbtn/background").texture = loadimg
@@ -97,7 +100,7 @@ func _on_start_button_down():
 func _on_backbtn_pressed():
 	get_node("connect").hide()
 	get_node("players").hide()
-	get_tree().get_root().get_node("lobby3D/SettingsGUI").visible = false
+	r.get_node("lobby3D/SettingsGUI").visible = false
 	get_node("UI").show()
 	get_node("background/backbtn/background").modulate = Color(1.0,1.0,1.0)
 	get_node("UI").modulate = Color(1.0,1.0,1.0)
@@ -129,6 +132,6 @@ func _on_track3_pressed():
 	multiplayer_dialog()
 
 func _on_playbtn_pressed():
-	get_tree().get_root().get_node("lobby3D/lobby/settings").hide()
-	get_tree().get_root().get_node("lobby3D/lobby/play").hide()
-	get_tree().get_root().get_node("lobby3D/lobby/UI").show()
+	r.get_node("lobby3D/lobby/settings").hide()
+	r.get_node("lobby3D/lobby/play").hide()
+	r.get_node("lobby3D/lobby/UI").show()
