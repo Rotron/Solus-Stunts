@@ -5,7 +5,7 @@ var l = 0
 
 func start():
 	show()
-	line = dialog.read("res://dialog/dialog")
+	line = dialog.read("res://dialog/dialog.res")
 	code = ""
 	l = 0
 	for n in line:
