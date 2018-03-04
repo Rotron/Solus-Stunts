@@ -236,7 +236,7 @@ extents = Vector3( 0.658313, 0.404145, 1.32246 )
 
 size = Vector2( 1, 1 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -334,7 +334,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="right_front" type="VehicleWheel" parent="BODY" index="2"]
 
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603377, 0.19311, 0.771967 )
 use_as_traction = false
 use_as_steering = true
