@@ -50,8 +50,9 @@ Grass texture: http://texturelib.com/texture/?path=/Textures/grass/grass/grass_g
 
 Seamless water texture: http://texturelib.com/texture/?path=/Textures/water/water/water_water_0024 (license: http://texturelib.com/license/)
 
+Dry cracked road texture: http://texturelib.com/texture/?path=/Textures/road/damaged/road_damaged_0026 (license: http://texturelib.com/license/)
 
-Folder: textures/splatmap
+Folder: textures/splatmap; car/color.png
 
 
 ## Tracks

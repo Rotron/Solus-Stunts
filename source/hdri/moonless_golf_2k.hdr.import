@@ -7,10 +7,7 @@ path="res://.import/moonless_golf_2k.hdr-9d2af7ab730207d607cc75197d412451.stex"
 [deps]
 
 source_file="res://hdri/moonless_golf_2k.hdr"
-source_md5="9956000f7a29bcfc0ff1895b8a9a9e8a"
-
 dest_files=[ "res://.import/moonless_golf_2k.hdr-9d2af7ab730207d607cc75197d412451.stex" ]
-dest_md5="37828c446620dd5ff83b3bb1e225b293"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/table_mountain_1_2k.hdr-4d129366ce5e8cde7d9a045b9d2f14a3.ste
 [deps]
 
 source_file="res://hdri/table_mountain_1_2k.hdr"
-source_md5="0596fff11e2300984882ae3e1cf1c3a6"
-
 dest_files=[ "res://.import/table_mountain_1_2k.hdr-4d129366ce5e8cde7d9a045b9d2f14a3.stex" ]
-dest_md5="d00ff863d2ffb72125816d44bb175987"
 
 [params]
 

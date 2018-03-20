@@ -11,7 +11,8 @@ config_version=3
 [application]
 
 config/name="Solus Stunts MP"
-run/main_scene="res://lobby.tscn"
+run/main_scene="res://start.tscn"
+boot_splash/image="res://video/black.png"
 config/icon="res://icon.png"
 
 [autoload]

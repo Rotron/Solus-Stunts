@@ -2,32 +2,28 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/new wheel side.jpg-6bea336c1b6fa23e73a98dfc961e8ea6.s3tc.stex"
-path.etc2="res://.import/new wheel side.jpg-6bea336c1b6fa23e73a98dfc961e8ea6.etc2.stex"
+path="res://.import/new wheel side.jpg-6bea336c1b6fa23e73a98dfc961e8ea6.stex"
 
 [deps]
 
 source_file="res://objects/car2/new wheel side.jpg"
-source_md5="c8c12655cc627f5ab3f60cdb833e90a3"
-
-dest_files=[ "res://.import/new wheel side.jpg-6bea336c1b6fa23e73a98dfc961e8ea6.s3tc.stex", "res://.import/new wheel side.jpg-6bea336c1b6fa23e73a98dfc961e8ea6.etc2.stex" ]
-dest_md5="5057805c56c9d310f895e22ba1ffc880"
+dest_files=[ "res://.import/new wheel side.jpg-6bea336c1b6fa23e73a98dfc961e8ea6.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=true
+flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

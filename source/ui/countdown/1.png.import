@@ -7,10 +7,7 @@ path="res://.import/1.png-ce75dcd15e160afb5f2aaed9c9ecec20.stex"
 [deps]
 
 source_file="res://ui/countdown/1.png"
-source_md5="a8e453399bf8e39fe710dd3d12ce73ac"
-
 dest_files=[ "res://.import/1.png-ce75dcd15e160afb5f2aaed9c9ecec20.stex" ]
-dest_md5="797eb3538eea92b5805e1f3b1b9c1b71"
 
 [params]
 

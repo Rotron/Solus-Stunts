@@ -7,10 +7,7 @@ path="res://.import/8.png-886c2517ae9fcd5f04b385c58781c017.stex"
 [deps]
 
 source_file="res://dialog/character/8.png"
-source_md5="cc0106769afe622f9ac9aac5ce628387"
-
 dest_files=[ "res://.import/8.png-886c2517ae9fcd5f04b385c58781c017.stex" ]
-dest_md5="97f5ebd5345365ac308909c9087735ef"
 
 [params]
 

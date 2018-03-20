@@ -4,6 +4,7 @@ const DEFAULT_PORT = 10567
 const MAX_PEERS = 12
 var player_name = ""
 var track = 0
+var car_num = 1
 var index = 0
 var players = {}
 
@@ -51,7 +52,7 @@ remote func unregister_player(id):
 	players.erase(id)
 	emit_signal("player_list_changed")
 
-remote func pre_start_game(tr):
+remote func pre_start_game(tr,carn):
 	var world = load("res://world.tscn").instance()
 	var music = load("res://music/Winning the Race.ogg")
 	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").stream = music
@@ -67,8 +68,11 @@ remote func pre_start_game(tr):
 		newtrack = load("res://tracks/3/track3.scn").instance()
 	world.get_node("track").add_child(newtrack)
 	
-	var car_scene = load("res://car/car.tscn")
-		
+	var car_scene
+	if carn==1:
+		car_scene = load("res://car/car.tscn")
+	if carn==2:
+		car_scene = load("res://car/car2.tscn")
 	var car = car_scene.instance()
 	car.set_name(str(get_tree().get_network_unique_id()))
 	car.set_network_master(get_tree().get_network_unique_id())
@@ -125,8 +129,8 @@ func get_player_name():
 func begin_game():
 	assert(get_tree().is_network_server())
 	for p in players:
-		rpc_id(p, "pre_start_game", track)
-	pre_start_game(track)
+		rpc_id(p, "pre_start_game", track, car_num)
+	pre_start_game(track, car_num)
 
 func end_game():
 	if (has_node("/root/world3D/world2")):
@@ -135,7 +139,7 @@ func end_game():
 	players.clear()
 	get_tree().set_network_peer(null)
 
-func _ready():
+func networking():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 	get_tree().connect("network_peer_disconnected", self,"_player_disconnected")
 	get_tree().connect("connected_to_server", self, "_connected_ok")

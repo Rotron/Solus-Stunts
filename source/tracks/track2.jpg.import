@@ -7,10 +7,7 @@ path="res://.import/track2.jpg-98fdbeaa528bc3bd7f0a483079598100.stex"
 [deps]
 
 source_file="res://tracks/track2.jpg"
-source_md5="4b4a2eb515e9a64720c066b378ac6ba6"
-
 dest_files=[ "res://.import/track2.jpg-98fdbeaa528bc3bd7f0a483079598100.stex" ]
-dest_md5="81a5b6169798b0621ad74f96075fb028"
 
 [params]
 

@@ -1,15 +1,17 @@
 extends Control
 var rot = 0.0;
-var loadimg = preload("res://images/screen.jpg")
-var track1 = preload("res://tracks/track1.jpg")
-var track2 = preload("res://tracks/track2.jpg")
-var track3 = preload("res://tracks/track3.jpg")
+var loadimg = load("res://images/screen.jpg")
+var track1 = load("res://tracks/track1.jpg")
+var track2 = load("res://tracks/track2.jpg")
+var track3 = load("res://tracks/track3.jpg")
+var track=0
+var car_num=1
 onready var r = get_tree().get_root()
 func _ready():
+	gamestate.networking()
 	init_connection()
 	set_process_input(true)
-	r.get_node("lobby3D/Panel/character/character").play("idle")
-	r.get_node("lobby3D/Panel").start()
+	
 
 func init_connection():
 	gamestate.connect("connection_failed", self, "_on_connection_failed")
@@ -24,6 +26,12 @@ func _input(event):
 		settings.visible = !settings.visible
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+	if event.is_action_pressed("ui_accept") && r.get_node("lobby3D/lobby/play/playbtn").visible==true:
+		gamestate.car_num=get_tree().get_root().get_node("car_showcase").car_num
+		get_tree().get_root().get_node("car_showcase").free()
+		r.get_node("lobby3D/lobby/play").hide()
+		r.get_node("lobby3D/lobby/UI").show()
+		r.get_node("lobby3D/lobby/background").show()
 
 func invalid_name():
 	if (get_node("connect/name").text == ""):
@@ -132,6 +140,9 @@ func _on_track3_pressed():
 	multiplayer_dialog()
 
 func _on_playbtn_pressed():
-	r.get_node("lobby3D/lobby/settings").hide()
 	r.get_node("lobby3D/lobby/play").hide()
-	r.get_node("lobby3D/lobby/UI").show()
+	r.get_node("lobby3D/lobby/UI").hide()
+	r.get_node("lobby3D/lobby/background").hide()
+	var car_showcase = load("res://car/car_showcase.tscn").instance()
+	car_showcase.set_name("car_showcase")
+	get_tree().get_root().add_child(car_showcase)

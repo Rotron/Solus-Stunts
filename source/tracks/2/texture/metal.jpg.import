@@ -8,10 +8,7 @@ path.etc2="res://.import/metal.jpg-ffe8ca59d58c4bdb2257932d93b91cb3.etc2.stex"
 [deps]
 
 source_file="res://tracks/2/texture/metal.jpg"
-source_md5="cba9e6331d23cec7f90f04a00ddf9f6f"
-
 dest_files=[ "res://.import/metal.jpg-ffe8ca59d58c4bdb2257932d93b91cb3.s3tc.stex", "res://.import/metal.jpg-ffe8ca59d58c4bdb2257932d93b91cb3.etc2.stex" ]
-dest_md5="dd7901237459e7b9c466520cf8854614"
 
 [params]
 

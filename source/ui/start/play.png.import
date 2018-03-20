@@ -7,10 +7,7 @@ path="res://.import/play.png-fe4868cd6bae3be309ef289bb0c94d2f.stex"
 [deps]
 
 source_file="res://ui/start/play.png"
-source_md5="660cda17ed8da9b794cafeebbb0b7d50"
-
 dest_files=[ "res://.import/play.png-fe4868cd6bae3be309ef289bb0c94d2f.stex" ]
-dest_md5="7d1f2cf2a95012b6ed96ff5ed5e0a6a8"
 
 [params]
 

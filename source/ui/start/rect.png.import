@@ -7,10 +7,7 @@ path="res://.import/rect.png-8c2c1881ea8d436cd674def72bdc5d85.stex"
 [deps]
 
 source_file="res://ui/start/rect.png"
-source_md5="58132bd175fcc13dc1269dcfa84d8c00"
-
 dest_files=[ "res://.import/rect.png-8c2c1881ea8d436cd674def72bdc5d85.stex" ]
-dest_md5="6ce3ed6990f82e410fa8061b7cfab50d"
 
 [params]
 

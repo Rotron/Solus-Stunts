@@ -8,10 +8,7 @@ path.etc2="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc
 [deps]
 
 source_file="res://tracks/1/texture/PalmLeaves.001.png"
-source_md5="06561adbe94d7a960793588321b90820"
-
 dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex", "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex" ]
-dest_md5="bc87a2aa5a9db81efeafd94843161994"
 
 [params]
 

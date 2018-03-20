@@ -1,6 +1,6 @@
 extends VehicleBody
 
-const MAX_SPEED = 55
+const MAX_SPEED = 25
 const STEER_SPEED = 1
 const STEER_LIMIT = 0.4
 
@@ -26,7 +26,7 @@ var speed_kph = 0
 var forward_vec
 var reverse
 var time = 0
-
+var offline=false
 func _physics_process(delta):
 	time += delta
 	speed = get_linear_velocity().length()
@@ -46,9 +46,9 @@ func _physics_process(delta):
 		STEER_LIMIT = 1
 		STEER_SPEED = 1
 	
-	if (is_network_master()):
+	if (is_network_master() or offline):
 		get_node("info/fps").set_text(str(Engine.get_frames_per_second()) + " fps")
-		get_node("info/v").set_text(str(round(speed*3.6)))
+		get_node("info/v").set_text(str(round(speed*3.6)) + " kph")
 		var minutes = int(time/60)
 		var seconds = int(time) - minutes * 60
 		if minutes == 0:
@@ -111,7 +111,7 @@ func _physics_process(delta):
 		steer_angle += STEER_SPEED*delta
 		if (steer_target < steer_angle):
 			steer_angle = steer_target
-	if (is_network_master()):
+	if (is_network_master() or offline):
 		set_steering(steer_angle)
 	
 	var forward_vec = get_global_transform().xform(Vector3(0, 1.5, 2))-get_global_transform().origin

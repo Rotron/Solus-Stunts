@@ -7,10 +7,7 @@ path="res://.import/1.png-ca3548f83a60000856754b522d428331.stex"
 [deps]
 
 source_file="res://ui/control/1.png"
-source_md5="e99b70a754ee943e769e4fbebaf980c3"
-
 dest_files=[ "res://.import/1.png-ca3548f83a60000856754b522d428331.stex" ]
-dest_md5="c3674e52f7dc3cc9299fbcd69e4baa98"
 
 [params]
 

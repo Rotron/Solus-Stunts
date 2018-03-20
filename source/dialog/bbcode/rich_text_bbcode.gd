@@ -15,7 +15,8 @@ func start():
 	$"Timer".start()
 
 func _ready():
-	pass
+	get_node("character/character").play("idle")
+	start()
 
 func _on_Button_pressed():
 	if $"Timer".is_stopped():

@@ -8,10 +8,7 @@ path.etc2="res://.import/water.jpg-a23f0b7110cda6d2a499cee050f0422d.etc2.stex"
 [deps]
 
 source_file="res://textures/splatmap/water.jpg"
-source_md5="fe49cff3964d3ced12ec63149f42a6df"
-
 dest_files=[ "res://.import/water.jpg-a23f0b7110cda6d2a499cee050f0422d.s3tc.stex", "res://.import/water.jpg-a23f0b7110cda6d2a499cee050f0422d.etc2.stex" ]
-dest_md5="75c3da007940a3c7b3aff90336f1ab40"
 
 [params]
 

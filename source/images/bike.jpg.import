@@ -7,10 +7,7 @@ path="res://.import/bike.jpg-210b92e24d90164cd54e4f88dbd1e9bb.stex"
 [deps]
 
 source_file="res://images/bike.jpg"
-source_md5="c546df2199effc48efc01d79d87917f5"
-
 dest_files=[ "res://.import/bike.jpg-210b92e24d90164cd54e4f88dbd1e9bb.stex" ]
-dest_md5="51856b846a51f1c85935eaf2a15c384a"
 
 [params]
 
