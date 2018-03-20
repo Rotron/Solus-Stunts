@@ -144,6 +144,10 @@ By Stormcloud:
 
 Wheel: https://openclipart.org/detail/17705/wheel (license: https://openclipart.org/share)
 
+By qubodup (Librarian):
+
+Pink button settings: https://openclipart.org/detail/202759/pink-button-settings
+
 Folder: images/ui
 
 ## 2D assets
