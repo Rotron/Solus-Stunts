@@ -176,6 +176,10 @@ Rich Text Label (BBCode):
 https://github.com/godotengine/godot-demo-projects/tree/master/gui/rich_text_bbcode (license: MIT)
 
 
+## Intro Template
+Blender 2D Intro Template #1: https://www.blendswap.com/blends/view/83509 (license: CC0)
+
+
 ## Tutorial
 By Nuno Donato:
 
