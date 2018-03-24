@@ -442,7 +442,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="cambase" index="0"]
 
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -465,7 +465,7 @@ autoturn_speed = 50
 
 [node name="CameraCockpit" type="Camera" parent="cambase" index="1"]
 
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -1.15, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.15, 0 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null

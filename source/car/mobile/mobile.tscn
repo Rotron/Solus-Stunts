@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://car/mobile/mobile.gd" type="Script" id=1]
+[ext_resource path="res://ui/circle/3.png" type="Texture" id=2]
+[ext_resource path="res://ui/circle/7.png" type="Texture" id=3]
+[ext_resource path="res://ui/circle/4.png" type="Texture" id=4]
+
+[node name="mobile" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="steering" type="Control" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -417.0
+margin_right = 417.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="left" type="TouchScreenButton" parent="steering" index="0"]
+
+position = Vector2( 0, 417 )
+rotation = -1.5708
+normal = ExtResource( 2 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="TouchScreenButton" parent="steering" index="1"]
+
+position = Vector2( 834, 0 )
+rotation = 1.5708
+normal = ExtResource( 2 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="speed" type="Control" parent="." index="1"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -417.0
+margin_top = -417.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="gas" type="TouchScreenButton" parent="speed" index="0"]
+
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="brake" type="TouchScreenButton" parent="speed" index="1"]
+
+position = Vector2( -417, 0 )
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="pressed" from="steering/left" to="." method="_on_left_pressed"]
+
+[connection signal="pressed" from="steering/right" to="." method="_on_right_pressed"]
+
+

@@ -36,15 +36,18 @@ func _process(delta):
 					lobby = load("res://lobby.tscn").instance()
 				else:
 					lobby = load("res://offline.tscn").instance()
+				var mobile = load("res://car/mobile/mobile.tscn").instance()
 				var settings = load("res://settings.tscn").instance()
 				var car_showcase = load("res://car/showcase/car_showcase.tscn").instance()
 				var dialog = load("res://dialog/bbcode/rich_text_bbcode.tscn").instance()
 				var img = load("res://video/image.tscn").instance()
+				mobile.set_name("mobile")
 				dialog.set_name("Panel")
 				settings.set_name("SettingsGUI")
 				lobby.set_name("lobby")
 				car_showcase.set_name("car_showcase")
 				img.set_name("Sprite")
+				add_child(mobile)
 				add_child(lobby)
 				add_child(settings)
 				add_child(dialog)
@@ -117,25 +120,31 @@ func start():
 
 func _input(event):
 	if Input.is_action_pressed("ui_right") and not event.is_echo():
-		remove_child(get_node("car"))
-		if car_num <= 1:
-			car_num += 1
-		else:
-			car_num = 1
-		
-		if car_num == 1:
-			init(car)
-		if car_num == 2:
-			init(car2)
+		right()
 	
 	if Input.is_action_pressed("ui_left") and not event.is_echo():
-		remove_child(get_node("car"))
-		if car_num >= 2:
-			car_num -= 1
-		else:
-			car_num = 2
+		left()
 		
-		if car_num == 1:
-			init(car)
-		if car_num == 2:
-			init(car2)
+func right():
+	remove_child(get_node("car"))
+	if car_num <= 1:
+		car_num += 1
+	else:
+		car_num = 1
+	
+	if car_num == 1:
+		init(car)
+	if car_num == 2:
+		init(car2)
+
+func left():
+	remove_child(get_node("car"))
+	if car_num >= 2:
+		car_num -= 1
+	else:
+		car_num = 2
+	
+	if car_num == 1:
+		init(car)
+	if car_num == 2:
+		init(car2)

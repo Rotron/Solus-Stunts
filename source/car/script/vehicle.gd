@@ -27,6 +27,7 @@ var forward_vec
 var reverse
 var time = 0
 var offline=false
+var r
 func _physics_process(delta):
 	time += delta
 	speed = get_linear_velocity().length()
@@ -59,14 +60,14 @@ func _physics_process(delta):
 		
 		get_node("cambase/Camera").make_current()
 		
-		if Input.is_action_pressed("ui_left"):
+		if Input.is_action_pressed("ui_left") or r.get_node("lobby3D/mobile/steering/left").is_pressed():
 			steer_target = STEER_LIMIT
-		elif Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("ui_right") or r.get_node("lobby3D/mobile/steering/right").is_pressed():
 			steer_target = -STEER_LIMIT
 		else:
 			steer_target = 0
 		
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("ui_up") or r.get_node("lobby3D/mobile/speed/gas").is_pressed():
 			if (speed < MAX_SPEED):
 				set_engine_force(force)
 			else:
@@ -77,7 +78,7 @@ func _physics_process(delta):
 			else:
 				set_engine_force(0)
 		
-		if Input.is_action_pressed("ui_down"):
+		if Input.is_action_pressed("ui_down") or r.get_node("lobby3D/mobile/speed/brake").is_pressed():
 			if (speed > 5):
 				set_brake(1)
 				set_engine_force(-force*braking_force_mult)
@@ -120,6 +121,7 @@ func _physics_process(delta):
 	else:
 		reverse = true
 
+	
 func set_player_name(new_name):
 	get_node("Viewport/Nametag/Label").set_text(new_name)
 	update()
@@ -134,4 +136,5 @@ func update():
 	mesh.get_surface_material(0).albedo_texture = tex
 
 func _ready():
+	r = get_tree().get_root()
 	set_physics_process(false)
