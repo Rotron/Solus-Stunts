@@ -17,13 +17,6 @@ func _ready():
 	loading(get_node("car"))
 	set_process_input(false)
 	get_node("mobile").set_process_input(false)
-	get_node("AudioStreamPlayer").stream = gamestate.load_ogg(gamestate.ArcLight)
-	get_node("AudioStreamPlayer").play()
-	get_node("play/playbtn").texture_normal = gamestate.load_png(gamestate.b32)
-	get_node("settings/settings").texture_normal = gamestate.load_png(gamestate.b35)
-	get_node("UI/VBoxContainer/track1").icon = gamestate.load_png(gamestate.b34)
-	get_node("UI/VBoxContainer/track2").icon = gamestate.load_png(gamestate.b34)
-	get_node("UI/VBoxContainer/track3").icon = gamestate.load_png(gamestate.b34)
 func loading(c):
 	get_node("car_showcase/ground").angular_velocity.y = 0.5
 	c.set_player_name("")
@@ -88,7 +81,7 @@ func _input(event):
 
 func start():
 	var world = load("res://world.tscn").instance()
-	get_node("AudioStreamPlayer").stream = gamestate.load_ogg(gamestate.WinningtheRace)
+	get_node("AudioStreamPlayer").stream = global.load_ogg(global.WinningtheRace)
 	get_node("AudioStreamPlayer").play()
 	get_node("mobile/speed").show()
 	get_node("play").queue_free()

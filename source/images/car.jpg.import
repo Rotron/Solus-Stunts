@@ -2,17 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/car.jpg-fc9a2cd7c26bf8fb60ea4530249bf096.s3tc.stex"
-path.etc2="res://.import/car.jpg-fc9a2cd7c26bf8fb60ea4530249bf096.etc2.stex"
+path="res://.import/car.jpg-fc9a2cd7c26bf8fb60ea4530249bf096.stex"
 
 [deps]
 
 source_file="res://images/car.jpg"
-dest_files=[ "res://.import/car.jpg-fc9a2cd7c26bf8fb60ea4530249bf096.s3tc.stex", "res://.import/car.jpg-fc9a2cd7c26bf8fb60ea4530249bf096.etc2.stex" ]
+dest_files=[ "res://.import/car.jpg-fc9a2cd7c26bf8fb60ea4530249bf096.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0

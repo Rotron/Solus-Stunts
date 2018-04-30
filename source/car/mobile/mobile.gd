@@ -2,10 +2,7 @@ extends Control
 
 onready var l = $"/root/lobby"
 func _ready():
-	get_node("steering/left").normal = gamestate.load_png(gamestate.b3)
-	get_node("steering/right").normal= gamestate.load_png(gamestate.b3)
-	get_node("speed/gas").normal = gamestate.load_png(gamestate.b7)
-	get_node("speed/brake").normal = gamestate.load_png(gamestate.b4)
+	pass
 
 func _on_left_pressed():
 	if l.is_processing_input()==true:

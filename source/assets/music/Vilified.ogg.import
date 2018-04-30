@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vilified.ogg-1fb9ee4e81c8171d903d5714eb60fb30.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Vilified.ogg"
+dest_files=[ "res://.import/Vilified.ogg-1fb9ee4e81c8171d903d5714eb60fb30.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
