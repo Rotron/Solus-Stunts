@@ -1,6 +1,6 @@
 # Solus Stunts
 
-![Screenshot](/source/images/screen.jpg?raw=true)
+[![Screenshot](/source/images/screen.jpg?raw=true)](https://www.youtube.com/watch?v=Cg3jxG9sXE8)
 
 This is the "official" repository of the Solus Stunts Project (made with Godot 3.x).
 
