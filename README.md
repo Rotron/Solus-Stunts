@@ -28,7 +28,7 @@ cd -
 ```
 cd godot
 scons p=x11 target=release_debug bits=64 -j 8
-sons p=x11 tools=no target=release_debug bits=64 -j 8
+scons p=x11 tools=no target=release_debug bits=64 -j 8
 mv bin/godot.x11.opt.debug.64 bin/linux_x11_64_debug
 mv bin/linux_x11_64_debug /home/[user]/.local/share/godot/templates/3.1.dev.mono
 cd -
