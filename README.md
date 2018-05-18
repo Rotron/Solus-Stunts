@@ -35,9 +35,9 @@ mv bin/godot.x11.opt.debug.64 bin/linux_x11_64_debug
 mv bin/linux_x11_64_release /home/$USER/.local/share/godot/templates/3.1.dev
 mv bin/linux_x11_64_debug /home/$USER/.local/share/godot/templates/3.1.dev
 cd -
-godot/bin/godot.x11.opt.tools.64 --path Solus-Stunts/source --export "Linux/X11" Solus-Stunts.64
+godot/bin/godot.x11.opt.tools.64 --path Solus-Stunts/source --export "Linux/X11" /home/$USER/Solus-Stunts.64
 ```
 #### Run
 Editor: ```godot/bin/godot.x11.opt.tools.64```
 
-Game: ```./Solus-Stunts.64```
+Game: ```/home/$USER/Solus-Stunts.64```
