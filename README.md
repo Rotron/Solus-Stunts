@@ -12,6 +12,7 @@ git clone https://github.com/godotengine/godot.git
 git clone --recursive https://github.com/HugeGameArtGD/Solus-Stunts.git
 cd Solus-Stunts
 git submodule foreach --recursive git pull origin master
+cd -
 ```
 #### Update
 ```
@@ -21,6 +22,7 @@ cd -
 cd Solus-Stunts
 git submodule foreach --recursive git pull origin master
 git pull origin master
+cd -
 ```
 #### Compile
 ```
