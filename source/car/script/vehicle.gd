@@ -1,8 +1,8 @@
 extends VehicleBody
 
-const MAX_SPEED = 50
-const STEER_SPEED = 1
-const STEER_LIMIT = 0.4
+var MAX_SPEED = 50
+var STEER_SPEED = 1
+var STEER_LIMIT = 0.4
 
 export var force = 1500
 
@@ -90,8 +90,8 @@ func _physics_process(delta):
 		if (steer_target < steer_angle):
 			steer_angle = steer_target
 	set_steering(steer_angle)
-	
-	var forward_vec = get_global_transform().xform(Vector3(0, 1.5, 2))-get_global_transform().origin
+	var vec = get_global_transform().xform(Vector3(0, 1.5, 2))
+	var forward_vec = vec - get_global_transform().origin
 	if (get_linear_velocity().dot(forward_vec) > 0):
 		reverse = false
 	else:

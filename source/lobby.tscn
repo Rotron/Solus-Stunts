@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://lobby.gd" type="Script" id=1]
 [ext_resource path="res://car/mobile/mobile.gd" type="Script" id=2]
@@ -69,6 +69,7 @@ ssao_radius2 = 0.0
 ssao_intensity2 = 1.0
 ssao_bias = 0.01
 ssao_light_affect = 0.0
+ssao_ao_channel_affect = 0.0
 ssao_color = Color( 0, 0, 0, 1 )
 ssao_quality = 0
 ssao_blur = 3
@@ -104,9 +105,15 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Background" ]
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="PhysicsMaterial" id=3]
 
-resource_name = "Circle"
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="ArrayMesh" id=4]
+
 blend_shape_mode = 1
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 surfaces/0 = {
@@ -123,7 +130,7 @@ surfaces/0 = {
 }
 _sections_unfolded = [ "surface_1" ]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=5]
 
 render_priority = 0
 flags_transparent = false
@@ -135,6 +142,8 @@ flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
 flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 0
@@ -145,6 +154,7 @@ params_depth_draw_mode = 0
 params_line_width = 1.0
 params_point_size = 1.0
 params_billboard_mode = 0
+params_billboard_keep_scale = false
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 1 )
@@ -177,41 +187,12 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Flags", "Metallic", "Roughness" ]
 
-[sub_resource type="QuadMesh" id=5]
+[sub_resource type="QuadMesh" id=6]
 
-material = SubResource( 4 )
+material = SubResource( 5 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
 size = Vector2( 1, 1 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
-draw_center = true
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 1
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_size = 0
-anti_aliasing = false
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Shadow" ]
 
 [sub_resource type="StyleBoxFlat" id=7]
 
@@ -242,7 +223,57 @@ anti_aliasing = false
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Shadow" ]
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="PhysicsMaterial" id=8]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=9]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=10]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="StyleBoxFlat" id=11]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
+draw_center = true
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 1
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_size = 0
+anti_aliasing = false
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Shadow" ]
+
+[sub_resource type="StyleBoxFlat" id=12]
 
 content_margin_left = 16.0
 content_margin_right = 16.0
@@ -271,26 +302,26 @@ anti_aliasing = false
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Content Margin", "Expand Margin" ]
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=13]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=14]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[node name="lobby" type="WorldEnvironment" index="0"]
+[node name="lobby" type="WorldEnvironment"]
 environment = SubResource( 2 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme", "Visibility" ]
 
-[node name="mobile" type="Control" parent="." index="0"]
+[node name="mobile" type="Control" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -304,7 +335,7 @@ size_flags_vertical = 1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="steering" type="Control" parent="mobile" index="0"]
+[node name="steering" type="Control" parent="mobile"]
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
@@ -319,7 +350,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="left" type="TouchScreenButton" parent="mobile/steering" index="0"]
+[node name="left" type="TouchScreenButton" parent="mobile/steering"]
 position = Vector2( 0, 417 )
 rotation = -1.5708
 normal = ExtResource( 3 )
@@ -333,7 +364,7 @@ action = ""
 visibility_mode = 0
 _sections_unfolded = [ "Transform" ]
 
-[node name="right" type="TouchScreenButton" parent="mobile/steering" index="1"]
+[node name="right" type="TouchScreenButton" parent="mobile/steering"]
 position = Vector2( 266.62, 291.258 )
 rotation = 1.5708
 normal = ExtResource( 3 )
@@ -347,7 +378,7 @@ action = ""
 visibility_mode = 0
 _sections_unfolded = [ "Transform" ]
 
-[node name="speed" type="Control" parent="mobile" index="1"]
+[node name="speed" type="Control" parent="mobile"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -362,7 +393,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="gas" type="TouchScreenButton" parent="mobile/speed" index="0"]
+[node name="gas" type="TouchScreenButton" parent="mobile/speed"]
 position = Vector2( 293.173, 290.371 )
 normal = ExtResource( 4 )
 pressed = null
@@ -375,7 +406,7 @@ action = ""
 visibility_mode = 0
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="brake" type="TouchScreenButton" parent="mobile/speed" index="1"]
+[node name="brake" type="TouchScreenButton" parent="mobile/speed"]
 position = Vector2( 162.95, 291.732 )
 normal = ExtResource( 5 )
 pressed = null
@@ -388,10 +419,10 @@ action = ""
 visibility_mode = 0
 _sections_unfolded = [ "Transform" ]
 
-[node name="car_showcase" type="Spatial" parent="." index="1"]
+[node name="car_showcase" type="Spatial" parent="."]
 _sections_unfolded = [ "Transform" ]
 
-[node name="ground" type="RigidBody" parent="car_showcase" index="0"]
+[node name="ground" type="RigidBody" parent="car_showcase"]
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -400,6 +431,7 @@ mode = 0
 mass = 1.0
 friction = 1.0
 bounce = 0.0
+physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = false
@@ -419,7 +451,7 @@ angular_velocity = Vector3( 0, 0, 0 )
 angular_damp = -1.0
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 
-[node name="Circle" type="MeshInstance" parent="car_showcase/ground" index="0"]
+[node name="Circle" type="MeshInstance" parent="car_showcase/ground"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 layers = 1
 material_override = null
@@ -430,12 +462,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="Camera" type="Camera" parent="car_showcase" index="1"]
+[node name="Camera" type="Camera" parent="car_showcase"]
 transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.99526, 3.75834 )
 keep_aspect = 1
 cull_mask = 1048575
@@ -451,7 +483,7 @@ near = 0.05
 far = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance" type="MeshInstance" parent="car_showcase/Camera" index="0"]
+[node name="MeshInstance" type="MeshInstance" parent="car_showcase/Camera"]
 transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-08, 0, 4.47035e-07, 1, 0, 0, -6.98279 )
 layers = 1
 material_override = null
@@ -462,12 +494,12 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 5 )
+mesh = SubResource( 6 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="settings" type="Control" parent="." index="2"]
+[node name="settings" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -482,7 +514,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="settings" type="TextureButton" parent="settings" index="0"]
+[node name="settings" type="TextureButton" parent="settings"]
 anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -503,7 +535,7 @@ group = null
 texture_normal = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="UI" type="Control" parent="." index="3"]
+[node name="UI" type="Control" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -517,7 +549,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -533,7 +565,7 @@ size_flags_vertical = 1
 alignment = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="track1" type="Button" parent="UI/VBoxContainer" index="0"]
+[node name="track1" type="Button" parent="UI/VBoxContainer"]
 show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -557,7 +589,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="Label" type="Label" parent="UI/VBoxContainer/track1" index="0"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/track1"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -581,7 +613,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_colors", "custom_fonts" ]
 
-[node name="track2" type="Button" parent="UI/VBoxContainer" index="1"]
+[node name="track2" type="Button" parent="UI/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -605,7 +637,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Label" type="Label" parent="UI/VBoxContainer/track2" index="0"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/track2"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -629,7 +661,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="track3" type="Button" parent="UI/VBoxContainer" index="2"]
+[node name="track3" type="Button" parent="UI/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -653,7 +685,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Label" type="Label" parent="UI/VBoxContainer/track3" index="0"]
+[node name="Label" type="Label" parent="UI/VBoxContainer/track3"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -677,7 +709,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="play" type="Panel" parent="." index="4"]
+[node name="play" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -694,10 +726,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 11 )
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
-[node name="playbtn" type="TextureButton" parent="play" index="0"]
+[node name="playbtn" type="TextureButton" parent="play"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -720,21 +752,27 @@ group = null
 texture_normal = ExtResource( 12 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="car_load1" parent="." index="5" instance=ExtResource( 13 )]
+[node name="car_load1" parent="." instance=ExtResource( 13 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -5 )
+physics_material_override = SubResource( 8 )
 gravity_scale = 0.0
+force = 1500
 
-[node name="car_load2" parent="." index="6" instance=ExtResource( 14 )]
+[node name="car_load2" parent="." instance=ExtResource( 14 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -10 )
+physics_material_override = SubResource( 9 )
 gravity_scale = 0.0
 _sections_unfolded = [ "Transform" ]
+force = 1500
 
-[node name="car" parent="." index="7" instance=ExtResource( 15 )]
+[node name="car" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+physics_material_override = SubResource( 10 )
 gravity_scale = 0.0
 angular_velocity = Vector3( 0, 0.5, 0 )
+force = 1500
 
-[node name="SettingsGUI" type="Control" parent="." index="8"]
+[node name="SettingsGUI" type="Control" parent="."]
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -750,7 +788,7 @@ theme = ExtResource( 11 )
 script = ExtResource( 16 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme", "Visibility" ]
 
-[node name="Panel" type="Panel" parent="SettingsGUI" index="0"]
+[node name="Panel" type="Panel" parent="SettingsGUI"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -766,10 +804,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 11 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 11 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
-[node name="WelcomeTitle" type="Label" parent="SettingsGUI/Panel" index="0"]
+[node name="WelcomeTitle" type="Label" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -791,7 +829,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="WelcomeText" type="Label" parent="SettingsGUI/Panel" index="1"]
+[node name="WelcomeText" type="Label" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -826,7 +864,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="GraphicsQuality" type="HBoxContainer" parent="SettingsGUI/Panel" index="2"]
+[node name="GraphicsQuality" type="HBoxContainer" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -845,7 +883,7 @@ custom_constants/separation = 24
 alignment = 0
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="SettingsGUI/Panel/GraphicsQuality" index="0"]
+[node name="Label" type="Label" parent="SettingsGUI/Panel/GraphicsQuality"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -866,7 +904,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="graphics_preset" type="OptionButton" parent="SettingsGUI/Panel/GraphicsQuality" index="1"]
+[node name="graphics_preset" type="OptionButton" parent="SettingsGUI/Panel/GraphicsQuality"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -893,7 +931,7 @@ items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", n
 selected = 0
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="GraphicsBlurb" type="RichTextLabel" parent="SettingsGUI/Panel" index="3"]
+[node name="GraphicsBlurb" type="RichTextLabel" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -908,8 +946,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
 custom_fonts/normal_font = ExtResource( 18 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
@@ -926,7 +964,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "custom_fonts" ]
 
-[node name="GraphicsInfo" type="RichTextLabel" parent="SettingsGUI/Panel" index="4"]
+[node name="GraphicsInfo" type="RichTextLabel" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -941,8 +979,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
 custom_fonts/normal_font = ExtResource( 18 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
@@ -959,7 +997,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="DisplayResolution" type="HBoxContainer" parent="SettingsGUI/Panel" index="5"]
+[node name="DisplayResolution" type="HBoxContainer" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -978,7 +1016,7 @@ custom_constants/separation = 24
 alignment = 0
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="SettingsGUI/Panel/DisplayResolution" index="0"]
+[node name="Label" type="Label" parent="SettingsGUI/Panel/DisplayResolution"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -999,7 +1037,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="display_resolution" type="OptionButton" parent="SettingsGUI/Panel/DisplayResolution" index="1"]
+[node name="display_resolution" type="OptionButton" parent="SettingsGUI/Panel/DisplayResolution"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1025,7 +1063,7 @@ items = [  ]
 selected = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Audio Volume" type="HBoxContainer" parent="SettingsGUI/Panel" index="6"]
+[node name="Audio Volume" type="HBoxContainer" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1044,7 +1082,7 @@ custom_constants/separation = 24
 alignment = 0
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="SettingsGUI/Panel/Audio Volume" index="0"]
+[node name="Label" type="Label" parent="SettingsGUI/Panel/Audio Volume"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1065,7 +1103,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HSlider" type="HSlider" parent="SettingsGUI/Panel/Audio Volume" index="1"]
+[node name="HSlider" type="HSlider" parent="SettingsGUI/Panel/Audio Volume"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1089,13 +1127,16 @@ page = 0.0
 value = 75.0
 exp_edit = false
 rounded = false
+allow_greater = false
+allow_lesser = false
 editable = true
+scrollable = true
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "Theme", "custom_styles" ]
 
-[node name="Mix target" type="HBoxContainer" parent="SettingsGUI/Panel" index="7"]
+[node name="Mix target" type="HBoxContainer" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1114,7 +1155,7 @@ custom_constants/separation = 24
 alignment = 0
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="SettingsGUI/Panel/Mix target" index="0"]
+[node name="Label" type="Label" parent="SettingsGUI/Panel/Mix target"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1135,7 +1176,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="target" type="OptionButton" parent="SettingsGUI/Panel/Mix target" index="1"]
+[node name="target" type="OptionButton" parent="SettingsGUI/Panel/Mix target"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1161,7 +1202,7 @@ items = [  ]
 selected = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="ConfirmButton" type="Button" parent="SettingsGUI/Panel" index="8"]
+[node name="ConfirmButton" type="Button" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1186,7 +1227,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="QuitButton" type="Button" parent="SettingsGUI/Panel" index="9"]
+[node name="QuitButton" type="Button" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1211,7 +1252,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="ReturnButton" type="Button" parent="SettingsGUI/Panel" index="10"]
+[node name="ReturnButton" type="Button" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1236,7 +1277,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="MenuTip" type="RichTextLabel" parent="SettingsGUI/Panel" index="11"]
+[node name="MenuTip" type="RichTextLabel" parent="SettingsGUI/Panel"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1251,8 +1292,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 custom_fonts/normal_font = ExtResource( 18 )
 bbcode_enabled = true
 bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][ESCAPE][/color] to toggle this menu.[/color]"
@@ -1267,11 +1308,12 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "custom_fonts", "custom_styles" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
+stream_paused = false
 mix_target = 0
 bus = "Master"
 
