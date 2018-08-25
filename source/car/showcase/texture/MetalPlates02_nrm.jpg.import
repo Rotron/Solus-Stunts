@@ -14,6 +14,7 @@ dest_files=[ "res://.import/MetalPlates02_nrm.jpg-2f919fa0ecbd523402c0828eb8ad37
 
 compress/mode=2
 compress/lossy_quality=0.7
+compress/no_bptc_if_rgb=false
 compress/hdr_mode=0
 compress/normal_map=1
 flags/repeat=true
@@ -24,6 +25,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

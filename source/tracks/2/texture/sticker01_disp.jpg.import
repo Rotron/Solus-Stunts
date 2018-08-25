@@ -14,6 +14,7 @@ dest_files=[ "res://.import/sticker01_disp.jpg-22dd6b387e1e55c423716ce84c224c78.
 
 compress/mode=2
 compress/lossy_quality=0.7
+compress/no_bptc_if_rgb=false
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=true

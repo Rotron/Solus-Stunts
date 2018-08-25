@@ -13,6 +13,7 @@ dest_files=[ "res://.import/Facade02_mask.jpg-e879e4e6181cc74db934a3392834b0b8.s
 
 compress/mode=0
 compress/lossy_quality=0.7
+compress/no_bptc_if_rgb=false
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
