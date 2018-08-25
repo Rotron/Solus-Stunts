@@ -6,11 +6,11 @@ func _ready():
 
 
 
-func _on_StaticBody2_body_entered(body):
+func _on_StaticBody2_body_entered(_body):
 	print("Game Over")
 	get_tree().change_scene("res://lobby.tscn")
 
 
-func _on_Area_body_entered(body):
+func _on_Area_body_entered(_body):
 	print("Game Over")
 	get_tree().change_scene("res://lobby.tscn")

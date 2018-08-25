@@ -11,7 +11,7 @@ var debug
 var origin
 var target_orig
 
-func _physics_process(dt):
+func _physics_process(_delta):
 	if (not debug):
 		var target = get_parent().get_global_transform().origin
 		var pos = get_global_transform().origin

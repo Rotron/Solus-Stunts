@@ -10,8 +10,8 @@ var steer_target = 0
 var speed
 var reverse
 var time = 0
-func _physics_process(delta):
-	time += delta
+func _physics_process(_delta):
+	time += _delta
 	speed = get_linear_velocity().length()
 	if (speed > 35):
 		STEER_LIMIT = 0.2
@@ -72,11 +72,11 @@ func _physics_process(delta):
 	
 		
 	if (steer_target < steer_angle):
-		steer_angle -= STEER_SPEED*delta
+		steer_angle -= STEER_SPEED*_delta
 		if (steer_target > steer_angle):
 			steer_angle = steer_target
 	elif (steer_target > steer_angle):
-		steer_angle += STEER_SPEED*delta
+		steer_angle += STEER_SPEED*_delta
 		if (steer_target < steer_angle):
 			steer_angle = steer_target
 	set_steering(steer_angle)

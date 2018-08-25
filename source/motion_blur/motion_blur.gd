@@ -8,7 +8,7 @@ func _ready():
 	if init == false:
 		set_process(false)
 
-func _process(delta):
+func _process(_delta):
 	var mat = get_surface_material(0)
 	var cam = get_parent()
 	assert cam is Camera
