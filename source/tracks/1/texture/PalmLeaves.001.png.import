@@ -14,8 +14,8 @@ dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.
 
 compress/mode=2
 compress/lossy_quality=0.7
-compress/no_bptc_if_rgb=false
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true

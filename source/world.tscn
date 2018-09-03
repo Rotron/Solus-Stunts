@@ -85,6 +85,15 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
+[node name="audio" type="AudioStreamPlayer" parent="countdown"]
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
+
 [node name="vehicles" type="Spatial" parent="."]
 
 [node name="track" type="Spatial" parent="."]
@@ -110,3 +119,4 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [connection signal="timeout" from="countdown/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="countdown/audio" to="." method="_on_audio_finished"]

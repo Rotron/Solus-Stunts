@@ -14,8 +14,8 @@ dest_files=[ "res://.import/vehicle_generic_detail2.jpg-d41167008dcc250cb5acf80c
 
 compress/mode=2
 compress/lossy_quality=0.7
-compress/no_bptc_if_rgb=false
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true

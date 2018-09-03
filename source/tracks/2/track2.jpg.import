@@ -13,8 +13,8 @@ dest_files=[ "res://.import/track2.jpg-6f5d28b559264897d32d95903b42a076.stex" ]
 
 compress/mode=0
 compress/lossy_quality=0.7
-compress/no_bptc_if_rgb=false
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
