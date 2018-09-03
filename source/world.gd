@@ -8,6 +8,8 @@ var car = null
 func _ready():
 	get_node("countdown/Timer").start()
 
+func set_text():
+	print("ready")
 
 func _input(event):
 	if event.is_action_pressed("return"):
