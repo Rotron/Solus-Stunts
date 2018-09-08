@@ -1,25 +1,26 @@
 shader_type spatial;
+uniform vec4 albedo : hint_color;
+uniform sampler2D texture_albedo : hint_albedo;
+uniform float specular;
+uniform float roughness : hint_range(0,1);
+uniform float point_size : hint_range(0,128);
+uniform sampler2D texture_roughness : hint_white;
+uniform vec4 roughness_texture_channel;
+uniform sampler2D texture_normal : hint_normal;
+uniform float normal_scale : hint_range(-16,16);
+uniform float texres=1;
+uniform sampler2D texture_splatmap: hint_albedo;
 
-uniform sampler2D tex1;
-uniform sampler2D tex2;
-uniform sampler2D tex3;
-uniform sampler2D splatmap;
 
-uniform float tex1res=1;
-uniform float tex2res=1;
-uniform float tex3res=1;
 
 
 void fragment() {
-	vec3 result;
-	
-	float tex1val = texture(splatmap, UV).g;
-	float tex2val = texture(splatmap, UV).r;
-	float tex3val = texture(splatmap, UV).b;
-	
-	vec3 tex1col = texture(tex1, UV*tex1res).rgb * tex1val;
-	vec3 tex2col = texture(tex2, UV*tex2res).rgb * tex2val;
-	vec3 tex3col = texture(tex3, UV*tex3res).rgb * tex3val;
-	
-	result = tex1col + tex2col + tex3col;
+	vec4 albedo_tex = texture(texture_albedo,UV*texres);
+	vec4 splatmap_tex = texture(texture_splatmap,UV);
+	ALBEDO = 2.0 * albedo.rgb * albedo_tex.rgb + 4.0 * splatmap_tex.rgb;
+	float roughness_tex = dot(texture(texture_roughness,UV*texres),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	NORMALMAP = texture(texture_normal,UV*texres).rgb;
 }
+
