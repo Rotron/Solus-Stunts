@@ -106,6 +106,10 @@ func start():
 		newtrack = load("res://tracks/3/track3.tscn").instance()
 		set_background(load("res://hdri/cape_hill_2k.hdr"))
 		get_node("AudioStreamPlayer").stream = load("res://assets/music/Pleasant Creek.ogg")
+	if track==4:
+		newtrack = load("res://tracks/4/track4.tscn").instance()
+		set_background(load("res://hdri/spruit_sunrise_2k.hdr"))
+		get_node("AudioStreamPlayer").stream = load("res://assets/music/Pizza Dungeon.ogg")
 	world.get_node("track").add_child(newtrack)
 	get_node("AudioStreamPlayer").play()
 	var car_scene
@@ -140,6 +144,10 @@ func _on_track3_pressed():
 	track=3
 	start()
 
+func _on_track4_pressed():
+	track=4
+	start()
+
 func update_background(img, col):
 	var mesh = get_node("car_showcase/Camera/MeshInstance")
 	var material = SpatialMaterial.new()
@@ -170,3 +178,5 @@ func set_background(background):
 
 func _on_AudioStreamPlayer_finished():
 	get_node("AudioStreamPlayer").play()
+
+

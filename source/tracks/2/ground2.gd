@@ -10,10 +10,11 @@ func _ready():
 	pass 
 
 func game_over():
-	print("Game Over")
-	get_tree().get_root().get_node("lobby/world").audioend()
-	$"/root/lobby/world/countdown/audio".stream = gameover
-	$"/root/lobby/world/countdown/audio".play()
+	pass
+	#print("Game Over")
+	#get_tree().get_root().get_node("lobby/world").audioend()
+	#$"/root/lobby/world/countdown/audio".stream = gameover
+	#$"/root/lobby/world/countdown/audio".play()
 
 func _on_StaticBody2_body_entered(_body):
 	game_over()
@@ -22,24 +23,25 @@ func _on_StaticBody2_body_entered(_body):
 func _on_Area_body_entered(_body):
 	game_over()
 
-func _on_goal2_body_entered(body):
+func _on_goal2_body_entered(_body):
 	nextround()
 	
 func nextround():
-	if ROUND < 3:
-		ROUND += 1
-		$"/root/lobby/world/round".text="round " + str(ROUND) + " of 3"
-		if ROUND == 2:
-			$"/root/lobby/world/countdown/audio".stream = round2
-		if ROUND == 3:
-			$"/root/lobby/world/countdown/audio".stream = finalround
-			
-		$"/root/lobby/world/countdown/audio".play()
-	else:
-		get_tree().get_root().get_node("lobby/world").audioend()
-		$"/root/lobby/world/countdown/audio".stream = winner
-		$"/root/lobby/world/countdown/audio".play()
+	pass
+	#if ROUND < 3:
+	#	ROUND += 1
+	#	$"/root/lobby/world/round".text="round " + str(ROUND) + " of 3"
+	#	if ROUND == 2:
+	#		$"/root/lobby/world/countdown/audio".stream = round2
+	#	if ROUND == 3:
+	#		$"/root/lobby/world/countdown/audio".stream = finalround
+	#		
+	#	$"/root/lobby/world/countdown/audio".play()
+	#else:
+	#	get_tree().get_root().get_node("lobby/world").audioend()
+	#	$"/root/lobby/world/countdown/audio".stream = winner
+	#	$"/root/lobby/world/countdown/audio".play()
 
-func _on_goal_body_entered(body):
+func _on_goal_body_entered(_body):
 	nextround()
 	

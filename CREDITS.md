@@ -13,6 +13,8 @@ http://www.matthewpablo.com
 
 License: CC-BY 3.0
 
+Pizza Dungeon by coda: https://soundcloud.com/coda/pizza-dungeon-b2
+
 
 ## HDRI
 
@@ -55,6 +57,9 @@ https://www.blendswap.com/blends/view/40080
 
 3) Channelled Land by MacroManJr:
 https://www.blendswap.com/blends/view/70029
+
+4) Vehicle Demo by BastiaanOlij:
+https://github.com/BastiaanOlij/vehicle-demo (MIT license + textures from Textures.com)
 
 
 ## Godot Projects

@@ -30,7 +30,7 @@ func _physics_process(_delta):
 		STEER_SPEED = 1
 	
 	get_node("info/fps").set_text(str(Engine.get_frames_per_second()) + " fps")
-	get_node("info/v").set_text(str(round(speed*3.6)) + " kph")
+	get_node("info/v").set_text(str(round(speed*3.6)) + " km/h")
 	var minutes = int(time/60)
 	var seconds = int(time) - minutes * 60
 	if minutes == 0:
