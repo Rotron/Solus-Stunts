@@ -63,6 +63,8 @@ flags_world_triplanar = false
 flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
 flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = false
 params_diffuse_mode = 0
@@ -73,6 +75,7 @@ params_depth_draw_mode = 0
 params_line_width = 1.0
 params_point_size = 1.0
 params_billboard_mode = 1
+params_billboard_keep_scale = false
 params_grow = false
 params_use_alpha_scissor = false
 albedo_color = Color( 1, 1, 1, 0.156863 )
@@ -102,7 +105,7 @@ uv2_offset = Vector3( 0, 0, 0 )
 uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
-distance_fade_enable = false
+distance_fade_mode = 0
 _sections_unfolded = [ "Albedo", "Emission", "Flags", "Metallic", "Parameters", "Roughness", "Vertex Color" ]
 
 [sub_resource type="QuadMesh" id=5]
@@ -112,9 +115,9 @@ custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
 size = Vector2( 1, 1 )
 
-[node name="main" type="Spatial" index="0"]
+[node name="main" type="Spatial"]
 
-[node name="fog" type="Particles" parent="." index="0"]
+[node name="fog" type="Particles" parent="."]
 transform = Transform( 0.5, -3.01992e-07, -4.515e-11, -4.515e-11, -0.000598029, 0.5, -1.50996e-07, -1, -0.000299015, 0, 0, 0 )
 layers = 1
 material_override = null
@@ -125,7 +128,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-emitting = true
+emitting = false
 amount = 5
 lifetime = 1.0
 one_shot = false
@@ -141,5 +144,5 @@ draw_order = 1
 process_material = SubResource( 3 )
 draw_passes = 1
 draw_pass_1 = SubResource( 5 )
-_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "LOD", "Process Material", "Time", "Transform" ]
+_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "LOD", "Pause", "Process Material", "Time", "Transform" ]
 
