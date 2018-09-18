@@ -13,7 +13,7 @@ http://www.matthewpablo.com
 
 License: CC-BY 3.0
 
-Pizza Dungeon by coda (CC-BY-NC-SA 3.0)
+Pizza Dungeon by coda (CC-BY-NC-SA 3.0):
 
 https://soundcloud.com/coda/pizza-dungeon-b2
 
