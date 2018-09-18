@@ -13,7 +13,9 @@ http://www.matthewpablo.com
 
 License: CC-BY 3.0
 
-Pizza Dungeon by coda: https://soundcloud.com/coda/pizza-dungeon-b2
+Pizza Dungeon by coda (CC-BY-NC-SA 3.0)
+
+https://soundcloud.com/coda/pizza-dungeon-b2
 
 
 ## HDRI
@@ -171,6 +173,9 @@ CC0: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 CC-BY 3.0: https://creativecommons.org/licenses/by/3.0/legalcode
 
 CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+CC-BY-NC-SA 3.0
+https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
 MIT: https://opensource.org/licenses/mit-license.php
 
